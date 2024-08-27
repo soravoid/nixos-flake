@@ -11,22 +11,24 @@
 
   outputs = { self, nixpkgs, disko, home-manager, ...}:
   {
-    nixosConfigurations.samsara = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        disko.nixosModules.disko
-        ./disk-config.nix
-        {
-          _module.args.disks = [ "/dev/vda" ];
-        }
-        ./configuration.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.user = import ./home-user.nix;
-        }
-      ];
-    };
-  };
+    nixosConfigurations =
+      let
+        default_home_manager = home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.user = import ./home-user.nix;
+        };
+      in
+      {
+        thinkpadx1 = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            disko.nixosModules.disko
+            ./disk-config.nix
+            ./configuration.nix
+            ./hosts/thinkpadx1.nix
+            default_home_manager
+          ];
+        };
+      };
 }
