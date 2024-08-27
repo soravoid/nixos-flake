@@ -65,11 +65,13 @@
   users.users.user = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" ];
+    hashedPassword = "$6$/uy40ndHYutGRrqd$R6VT/d6MGR1bUWHg7K9xb/tnnkkt/YQ6vjQz97L51cQYsAB0VzZA07oKDPls6xixpACFwWmSQ80l8kThQe1k11";
   };
 
   users.users.admin = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
+    hashedPassword = "$6$Z4SvSpMaUAf5waax$LTBmkcGFd0pqZ3oZzD6sz9SqN8BJxieEZbwgSFh9fUlllvmxtD5Y8VjFz7yRIuDugcyh5LqzYcGHMa13F6UGm.";
   };
 
   # List packages installed in system profile. To search, run:
