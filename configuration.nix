@@ -12,11 +12,9 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Use the GRUB 2 boot loader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.efiSupport = true;
-  boot.loader.grub.efiInstallAsRemovable = false;
-  boot.loader.efi.efiSysMountPoint = "/efi";
-  boot.loader.grub.device = "nodev";
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = true;
 
   networking.hostName = "samsara";
   # Pick only one of the below networking options.
