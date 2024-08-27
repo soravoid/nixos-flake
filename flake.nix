@@ -13,6 +13,7 @@
   {
     nixosConfigurations =
       let
+        system = "x86_64-linux";
         default_home_manager = home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -21,7 +22,17 @@
       in
       {
         thinkpadx1 = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+          inherit system;
+          modules = [
+            disko.nixosModules.disko
+            ./disk-config.nix
+            ./configuration.nix
+            ./hosts/thinkpadx1.nix
+            default_home_manager
+          ];
+        };
+        asrock = nixpkgs.lib.nixosSystem {
+          inherit system;
           modules = [
             disko.nixosModules.disko
             ./disk-config.nix
