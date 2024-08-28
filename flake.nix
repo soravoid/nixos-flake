@@ -27,6 +27,9 @@
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
                 home-manager.users.user = import ./home/home-user-devel.nix;
+                home-manager.users.user.wayland.windowManager.hyprland.settings.monitor = [
+                  "eDP-1,1920x1080@60,0x0,1"
+                ]
             }
           ];
         };
@@ -41,6 +44,11 @@
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
                 home-manager.users.user = import ./home-user-full.nix;
+                home-manager.users.user.wayland.windowManager.hyprland.settings.monitor = [
+                  # Don't ask about the positioning
+                  "DP-2,2560x1440@144,-1920x150,1",
+                  "HDMI-A-1,1920x1080@60,0x0,1.33333"
+                ]
             }
           ];
         };
