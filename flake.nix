@@ -20,7 +20,7 @@
           inherit system;
           modules = [
             disko.nixosModules.disko
-            ./disk-config.nix
+            ./disk-configs/disk-config-thinkpadx1.nix
             ./configuration.nix
             ./hosts/thinkpadx1.nix
             home-manager.nixosModules.home-manager {
@@ -34,7 +34,7 @@
           inherit system;
           modules = [
             disko.nixosModules.disko
-            ./disk-config.nix
+            ./disk-configs/disk-config-asrock.nix
             ./configuration.nix
             ./hosts/thinkpadx1.nix
             home-manager.nixosModules.home-manager {
