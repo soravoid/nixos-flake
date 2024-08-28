@@ -2,6 +2,18 @@
 {
   networking.hostName = "samsara";
 
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      libvdpau-va-gl
+    ];
+  };
+
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";
+  };
+
   ########## COPIED FROM HARDWARE SCAN ##########
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
