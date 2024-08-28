@@ -14,11 +14,6 @@
     nixosConfigurations =
       let
         system = "x86_64-linux";
-        default_home_manager = home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.user = import ./home-user.nix;
-        };
       in
       {
         thinkpadx1 = nixpkgs.lib.nixosSystem {
@@ -28,7 +23,11 @@
             ./disk-config.nix
             ./configuration.nix
             ./hosts/thinkpadx1.nix
-            default_home_manager
+            home-manager.nixosModules.home-manager {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.users.user = import ./home-user.nix;
+            }
           ];
         };
         asrock = nixpkgs.lib.nixosSystem {
@@ -38,7 +37,11 @@
             ./disk-config.nix
             ./configuration.nix
             ./hosts/thinkpadx1.nix
-            default_home_manager
+            home-manager.nixosModules.home-manager {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.users.user = import ./home-user.nix;
+            }
           ];
         };
       };
