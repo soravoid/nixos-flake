@@ -6,7 +6,7 @@ in
   wayland.windowManager.hyprland.systemd.enable = true;
   wayland.windowManager.hyprland.xwayland.enable = true;
   wayland.windowManager.hyprland.settings = {
-    monitor = lib.mkDefault [ ",preferred,auto,1" ];
+    monitor = lib.mkOptionDefault [ ",preferred,auto,1" ];
 
     "$terminal" = "kitty -1";
     "$fileManager" = "dolphin";

@@ -84,7 +84,7 @@ in
       };
 
       temperature = {
-        hwmon-path = lib.mkDefault "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input";
+        hwmon-path = lib.mkOptionDefault "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input";
         critical-threshold = 80;
         format = "{temperatureC}°C {icon}";
         format-icons = ["", "", "", "", ""];
