@@ -1,6 +1,6 @@
 {config, lib, pkgs, modulesPath, ...}:
 {
-  networking.hostname = "samsara";
+  networking.hostName = "samsara";
 
   ########## COPIED FROM HARDWARE SCAN ##########
   imports =

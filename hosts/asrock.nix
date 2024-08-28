@@ -1,6 +1,6 @@
 { config, lib, pkgs, modulesPath, ... }:
 {
-  networking.hostname = "firefly";
+  networking.hostName = "firefly";
 
   ########## COPIED FROM HARDWARE SCAN ##########
   imports =
