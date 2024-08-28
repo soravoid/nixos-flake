@@ -9,7 +9,7 @@
   # Use the GRUB 2 boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = true;
+  boot.loader.efi.efiSysMountPoint = "/efi";
 
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
