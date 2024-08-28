@@ -3,8 +3,8 @@ let
 in
 {
   programs.waybar.enable = true;
-  programs.waybar.settings = [
-    {
+  programs.waybar.settings = {
+    main = {
       margin = "20 20 0 20";
       modules-left = ["hyprland/workspaces", "hyprland/language", "keyboard-state"];
       modules-center = ["clock", "custom/weather"];
@@ -95,5 +95,5 @@ in
         spacing = 0;
       };
     }
-  ];
+  };
 };
