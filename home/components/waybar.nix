@@ -1,5 +1,6 @@
 let
   wttr_waybar_script = import ../../pkgs/waybar_wttr_script { pkgs };
+  lib = pkgs.lib;
 in
 {
   programs.waybar.enable = true;
@@ -83,7 +84,7 @@ in
       };
 
       temperature = {
-        hwmon-path = "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input";
+        hwmon-path = lib.mkDefault "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input";
         critical-threshold = 80;
         format = "{temperatureC}°C {icon}";
         format-icons = ["", "", "", "", ""];
