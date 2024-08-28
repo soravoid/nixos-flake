@@ -136,7 +136,7 @@
     ];
 
     windowrulev2 = [
-      "supressevent maximize,class:.*"
+      "suppressevent maximize,class:.*"
       "opacity 0.0 override,class:^(xwaylandvideobridge)$"
       "noanim,class:^(xwaylandvideobridge)$"
       "noinitialfocus,class:^(xwaylandvideobridge)$"
