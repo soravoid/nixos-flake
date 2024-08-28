@@ -64,7 +64,7 @@
       bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
       animation = [
         "windows, 1, 7, myBezier"
-        "windowsOut, 1, 7, default, popim, 80%"
+        "windowsOut, 1, 7, default, popin, 80%"
         "border, 1, 10, default"
         "borderangle, 1, 8, default"
         "fade, 1, 7, default"
@@ -113,7 +113,7 @@
       "$mod, R, exec, $menu"
       "$mod, D, exec, vesktop"
       "$mod, S, togglespecialworkspace, magic"
-      "$mod, SHIFT, S, movetoworkspace, special:magic"
+      "$mod SHIFT, S, movetoworkspace, special:magic"
     ]
     ++ (
       builtins.concatLists (builtins.genList (
@@ -124,7 +124,7 @@
             builtins.toString(x + 1 - (c * 10));
         in [
           "$mod, ${ws}, workspace, ${toString (x + 1)}"
-          "$mod, SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+          "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
         ]
       )
       10)
