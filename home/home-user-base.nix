@@ -18,7 +18,6 @@
     hyprlock
     hyprcursor
     swww
-    nerdfonts
   ];
   
   programs.home-manager.enable = true;
