@@ -1,9 +1,12 @@
+let
+  lib = pkgs.lib;
+in
 {
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.systemd.enable = true;
   wayland.windowManager.hyprland.xwayland.enable = true;
   wayland.windowManager.hyprland.settings = {
-    monitor = [ ",preferred,auto,1" ];
+    monitor = lib.mkDefault [ ",preferred,auto,1" ];
 
     "$terminal" = "kitty -1";
     "$fileManager" = "dolphin";
@@ -144,4 +147,4 @@
       "noblur,class:^(xwaylandvideobridge)$"
     ];
   };
-}
+};
