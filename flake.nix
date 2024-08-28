@@ -24,12 +24,14 @@
             ./configuration.nix
             ./hosts/thinkpadx1.nix
             home-manager.nixosModules.home-manager {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.users.user = import ./home/home-user-devel.nix;
-                home-manager.users.user.wayland.windowManager.hyprland.settings.monitor = [
-                  "eDP-1,1920x1080@60,0x0,1"
-                ]
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.user = import ./home/home-user-devel.nix;
+              home-manager.users.user.wayland.windowManager.hyprland.settings.monitor = [
+                "eDP-1,1920x1080@60,0x0,1"
+              ]
+              (builtins.elemAt home-manager.users.user.programs.waybar.settings 0).temperature.hwmon-path =
+                "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp4_input";
             }
           ];
         };
@@ -41,14 +43,16 @@
             ./configuration.nix
             ./hosts/thinkpadx1.nix
             home-manager.nixosModules.home-manager {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.users.user = import ./home-user-full.nix;
-                home-manager.users.user.wayland.windowManager.hyprland.settings.monitor = [
-                  # Don't ask about the positioning
-                  "DP-2,2560x1440@144,-1920x150,1",
-                  "HDMI-A-1,1920x1080@60,0x0,1.33333"
-                ]
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.user = import ./home-user-full.nix;
+              home-manager.users.user.wayland.windowManager.hyprland.settings.monitor = [
+                # Don't ask about the positioning
+                "DP-2,2560x1440@144,-1920x150,1",
+                "HDMI-A-1,1920x1080@60,0x0,1.33333"
+              ]
+              (builtins.elemAt home-manager.users.user.programs.waybar.settings 0).temperature.hwmon-path =
+                "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input";
             }
           ];
         };
