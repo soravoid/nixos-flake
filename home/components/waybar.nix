@@ -1,5 +1,6 @@
+{pkgs, ...}:
 let
-  wttr_waybar_script = import ../../pkgs/waybar_wttr_script { pkgs };
+  wttr_waybar_script = (import ../../pkgs/waybar_wttr_script) { inherit pkgs; };
   lib = pkgs.lib;
 in
 {
@@ -7,17 +8,17 @@ in
   programs.waybar.settings = {
     main = {
       margin = "20 20 0 20";
-      modules-left = ["hyprland/workspaces", "hyprland/language", "keyboard-state"];
-      modules-center = ["clock", "custom/weather"];
-      modules-right = ["idle_inhibitor", "pulseaudio", "memory", "temperature", "tray"];
+      modules-left = [ "hyprland/workspaces" "hyprland/language" "keyboard-state" ];
+      modules-center = [ "clock" "custom/weather" ];
+      modules-right = [ "idle_inhibitor" "pulseaudio" "memory" "temperature" "tray" ];
 
       "hyprland/workspaces" = {
         disable-scroll = true;
         persistent_workspaces = {
-          1 = [];
-          2 = [];
-          3 = [];
-          4 = [];
+          "1" = [];
+          "2" = [];
+          "3" = [];
+          "4" = [];
         };
       };
 
@@ -87,7 +88,7 @@ in
         hwmon-path = lib.mkOptionDefault "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input";
         critical-threshold = 80;
         format = "{temperatureC}°C {icon}";
-        format-icons = ["", "", "", "", ""];
+        format-icons = [ "" "" "" "" "" ];
         tooltip = false;
       };
 
@@ -95,6 +96,6 @@ in
         icon-size = 16;
         spacing = 0;
       };
-    }
+    };
   };
-};
+}

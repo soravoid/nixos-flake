@@ -1,3 +1,4 @@
+{pkgs, ...}:
 let
   lib = pkgs.lib;
 in
@@ -147,4 +148,4 @@ in
       "noblur,class:^(xwaylandvideobridge)$"
     ];
   };
-};
+}
