@@ -1,6 +1,7 @@
 {
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.systemd.enable = true;
+  wayland.windowManager.hyprland.xwayland.enable = true;
   wayland.windowManager.hyprland.settings = {
     monitor = [ ",preferred,auto,1" ];
 
@@ -25,7 +26,6 @@
     ];
 
     xwayland = {
-      enable = true;
       force_zero_scaling = true;
     };
 
@@ -60,7 +60,7 @@
     };
 
     animations = {
-      emabled = true;
+      enabled = true;
       bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
       animation = [
         "windows, 1, 7, myBezier"
@@ -114,8 +114,6 @@
       "$mod, D, exec, vesktop"
       "$mod, S, togglespecialworkspace, magic"
       "$mod, SHIFT, S, movetoworkspace, special:magic"
-      "$mod, mouse:272, movewindow"
-      "$mod, mouse:273, resizewindow"
     ]
     ++ (
       builtins.concatLists (builtins.genList (
@@ -131,6 +129,11 @@
       )
       10)
     );
+
+    bindm = [
+      "$mod, mouse:272, movewindow"
+      "$mod, mouse:273, resizewindow"
+    ];
 
     windowrulev2 = [
       "supressevent maximize,class:.*"
