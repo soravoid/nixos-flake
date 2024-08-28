@@ -29,7 +29,7 @@
               home-manager.users.user = import ./home/home-user-devel.nix;
               home-manager.users.user.wayland.windowManager.hyprland.settings.monitor = [
                 "eDP-1,1920x1080@60,0x0,1"
-              ]
+              ];
               home-manager.users.user.programs.waybar.settings.main.temperature.hwmon-path =
                 "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp4_input";
             }
@@ -50,7 +50,7 @@
                 # Don't ask about the positioning
                 "DP-2,2560x1440@144,-1920x150,1",
                 "HDMI-A-1,1920x1080@60,0x0,1.33333"
-              ]
+              ];
               home-manager.users.user.programs.waybar.settings.main.temperature.hwmon-path =
                 "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input";
             }
