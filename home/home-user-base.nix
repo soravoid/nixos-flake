@@ -5,7 +5,6 @@
     ./components/hypr/hypridle.nix
     ./components/waybar.nix
     ./components/firefox.nix
-    ./components/anyrun.nix
   ];
 
   home.username = "user";
