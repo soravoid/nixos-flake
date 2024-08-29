@@ -12,6 +12,8 @@
   inputs.anyrun.url = "github:anyrun-org/anyrun";
   inputs.anyrun.inputs.nixpkgs.follows = "nixpkgs";
 
+  inputs.hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+
   outputs = { self, nixpkgs, disko, home-manager, ...}@inputs:
   let
     system = "x86_64-linux";
@@ -34,6 +36,7 @@
     homeConfigurations.thinkpadx1 = home-manager.lib.homeManagerConfiguration {
       modules = [
         inputs.anyrun.homeManagerModules.default
+        inputs.hyprland.homeManagerModules.default
         ./home/home-user-devel.nix
         {
           wayland.windowManager.hyprland.settings.monitor =
@@ -55,6 +58,7 @@
     homeConfigurations.asrock = home-manager.lib.homeManagerConfiguration {
       modules = [
         inputs.anyrun.homeManagerModules.default
+        inputs.hyprland.homeManagerModules.default
         ./home-user-full.nix
         {
           wayland.windowManager.hyprland.settings.monitor =
