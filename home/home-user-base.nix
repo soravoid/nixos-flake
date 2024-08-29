@@ -22,11 +22,6 @@
     swww
   ];
 
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
-
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
   

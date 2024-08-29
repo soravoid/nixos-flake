@@ -1,6 +1,7 @@
 { config, lib, pkgs, modulesPath, ... }:
 {
   networking.hostName = "firefly";
+  services.pipewire.alsa.support32Bit = lib.mkBefore true;
 
   ########## COPIED FROM HARDWARE SCAN ##########
   imports =
