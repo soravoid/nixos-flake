@@ -9,7 +9,10 @@
   inputs.home-manager.url = "github:nix-community/home-manager";
   inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-  outputs = { self, nixpkgs, disko, home-manager, ...}:
+  inputs.anyrun.url = "github:anyrun-org/anyrun";
+  inputs.anyrun.inputs.nixpkgs.follows = "nixpkgs";
+
+  outputs = { self, nixpkgs, disko, home-manager, ...}@inputs:
   {
     nixosConfigurations =
       let

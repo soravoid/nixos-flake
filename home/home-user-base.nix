@@ -1,10 +1,11 @@
-{ configs, pkgs, ... }:
+{ configs, pkgs, inputs, ... }:
 {
   imports = [
     ./components/hypr/hyprland.nix
     ./components/hypr/hypridle.nix
     ./components/waybar.nix
     ./components/firefox.nix
+    ./components/anyrun.nix
   ];
 
   home.username = "user";
