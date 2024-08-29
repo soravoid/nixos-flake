@@ -14,7 +14,6 @@
     mako
     vesktop
     xwaylandvideobridge
-    xdg-desktop-portal-hyprland
     hypridle
     hyprlock
     hyprcursor
