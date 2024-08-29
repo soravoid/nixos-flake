@@ -19,6 +19,11 @@
     hyprcursor
     swww
   ];
+
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+  };
   
   programs.home-manager.enable = true;
   home.stateVersion = "24.05";
