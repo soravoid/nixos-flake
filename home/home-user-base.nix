@@ -11,6 +11,7 @@
   home.packages = with pkgs; [
     firefox
     kitty
+    (wrapFirefox (firefox-unwrapped.override { pipewireSupport = true; }) {})
     mako
     vesktop
     xwaylandvideobridge
@@ -24,6 +25,9 @@
     enable = true;
     pulse.enable = true;
   };
+
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ programs.hyprland.portalPackage ];
   
   programs.home-manager.enable = true;
   home.stateVersion = "24.05";

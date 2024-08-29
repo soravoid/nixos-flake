@@ -18,6 +18,7 @@ in
       "/usr/lib/polkit-kde-authentication-agent-1"
       "waybar"
       "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+      "systemctl --user import-environment"
     ];
 
     env = [
