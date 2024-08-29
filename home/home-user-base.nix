@@ -4,6 +4,7 @@
     ./components/hypr/hyprland.nix
     ./components/hypr/hypridle.nix
     ./components/waybar.nix
+    ./components/firefox.nix
   ];
 
   home.username = "user";
