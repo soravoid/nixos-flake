@@ -1,7 +1,4 @@
-#!/usr/bin/env nix-shell
-#! nix-shell -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/a6292e34000dc93d43bccf78338770c1c5ec8a99.tar.gz
-#! nix-shell -p python3
-#! nix-shell -i python3 --pure
+#!/usr/bin/env python3
 import json
 import requests
 from datetime import datetime

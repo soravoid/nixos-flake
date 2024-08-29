@@ -46,7 +46,7 @@ in
         format = "{}";
         tooltip = true;
         interval = 1800;
-        exec = "${wttr_waybar_script}/bin/wttr.py";
+        exec = "${wttr_waybar_script}/bin/wttr";
         return-type = "json";
       };
 

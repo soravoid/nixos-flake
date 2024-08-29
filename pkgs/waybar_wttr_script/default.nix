@@ -5,15 +5,8 @@
 })  {}, lib ? pkgs.lib, stdenv ? pkgs.stdenv, ...}:
 with pkgs;
 stdenv.mkDerivation {
-  pname = "waybar_wttr_script";
-  version = "1";
-  src = ./src;
-  dontBuild = true;
-  nativeBuildInputs = [ ];
-  buildInputs = [ pkgs.python3 ];
-
-  installPhase = ''
-  mkdir -p $out/bin
-  install -t $out/bin ./*
-  '';
+  name = "waybar_wttr_script";
+  buildInputs = [ (pkgs.python3.withPackages (p: [ p.requests ])) ];
+  unpackPhase = ":";
+  installPhase = "install -m755 -D ${./wttr.py} $out/bin/wttr";
 }
