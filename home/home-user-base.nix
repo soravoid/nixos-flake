@@ -10,9 +10,7 @@
   home.username = "user";
   home.homeDirectory = "/home/user";
   home.packages = with pkgs; [
-    firefox
     kitty
-    (wrapFirefox (firefox-unwrapped.override { pipewireSupport = true; }) {})
     mako
     vesktop
     xwaylandvideobridge

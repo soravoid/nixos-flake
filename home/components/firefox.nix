@@ -1,4 +1,10 @@
+{pkgs, ...}:
 {
+  home.packages = with pkgs; [
+    firefox
+    (wrapFirefox (firefox-unwrapped.override { pipewireSupport = true; }) {})
+  ];
+
   programs.firefox.enable = true;
   programs.firefox.languagePacks = [ "en_US" ];
   programs.firefox.policies = {
