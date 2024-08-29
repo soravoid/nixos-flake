@@ -28,7 +28,7 @@
   };
 
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ programs.hyprland.portalPackage ];
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
   
   programs.home-manager.enable = true;
   home.stateVersion = "24.05";
