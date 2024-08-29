@@ -1,7 +1,6 @@
 {pkgs, ...}:
 {
   home.packages = with pkgs; [
-    firefox
     (wrapFirefox (firefox-unwrapped.override { pipewireSupport = true; }) {})
   ];
 
