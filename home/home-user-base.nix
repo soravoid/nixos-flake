@@ -22,6 +22,7 @@
 
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+  xdg.portal.config.common.default = "*";
   
   programs.home-manager.enable = true;
   home.stateVersion = "24.05";
