@@ -61,7 +61,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.user = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" ];
+    extraGroups = [ "networkmanager", "input" ];
     hashedPassword = "$6$/uy40ndHYutGRrqd$R6VT/d6MGR1bUWHg7K9xb/tnnkkt/YQ6vjQz97L51cQYsAB0VzZA07oKDPls6xixpACFwWmSQ80l8kThQe1k11";
   };
 
