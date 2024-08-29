@@ -166,15 +166,6 @@ in
         background: #383c4a;
     }
 
-    #custom-pacman {
-        padding-left: 16px;
-        padding-right: 16px;
-        border-radius: 10px 10px 10px 10px;
-        transition: none;
-        color: #ffffff;
-        background: #383c4a;
-    }
-
     #clock {
         padding-left: 16px;
         padding-right: 16px;
