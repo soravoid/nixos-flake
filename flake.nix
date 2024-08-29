@@ -33,7 +33,7 @@
     };
     homeConfigurations.thinkpadx1 = home-manager.lib.homeManagerConfiguration {
       modules = [
-        anyrun.homeManagerModules.default
+        inputs.anyrun.homeManagerModules.default
         ./home/home-user-devel.nix
         {
           wayland.windowManager.hyprland.settings.monitor =
@@ -42,7 +42,7 @@
             lib.mkBefore "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp4_input";
         }
       ];
-    }
+    };
     nixosConfigurations.asrock = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
@@ -54,7 +54,7 @@
     };
     homeConfigurations.asrock = home-manager.lib.homeManagerConfiguration {
       modules = [
-        anyrun.homeManagerModules.default
+        inputs.anyrun.homeManagerModules.default
         ./home-user-full.nix
         {
           wayland.windowManager.hyprland.settings.monitor =
