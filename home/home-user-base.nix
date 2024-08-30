@@ -6,9 +6,13 @@
 
   home.username = "user";
   home.homeDirectory = "/home/user";
+
+  fonts.fontconfig.enable = true;
+
   home.packages = with pkgs; [
     kitty
     vesktop
+    nerdfonts
   ];
 
   programs.zsh = {
