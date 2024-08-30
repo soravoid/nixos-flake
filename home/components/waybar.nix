@@ -1,4 +1,4 @@
-pkgs:
+{ pkgs, ... }:
 let
   wttr_waybar_script = (import ../../pkgs/waybar_wttr_script) { inherit pkgs; };
   lib = pkgs.lib;

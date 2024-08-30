@@ -4,9 +4,9 @@ let
 in
 {
   imports = [
-    ../anyrun.nix
     ../firefox.nix
     ./hypridle.nix
+    ../rofi.nix
     ../waybar.nix
   ];
 
