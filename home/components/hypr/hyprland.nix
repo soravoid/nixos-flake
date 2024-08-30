@@ -30,7 +30,7 @@ in
 
     "$terminal" = "kitty -1";
     "$fileManager" = "dolphin";
-    "$menu" = "anyrun";
+    "$menu" = "rofi -show drun";
 
     exec-once = [
       "mako"
