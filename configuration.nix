@@ -63,6 +63,7 @@
     isNormalUser = true;
     extraGroups = [ "networkmanager" "input" ];
     hashedPassword = "$6$/uy40ndHYutGRrqd$R6VT/d6MGR1bUWHg7K9xb/tnnkkt/YQ6vjQz97L51cQYsAB0VzZA07oKDPls6xixpACFwWmSQ80l8kThQe1k11";
+    shell = pkgs.zsh;
   };
 
   users.users.admin = {
@@ -79,6 +80,7 @@
     fzf
     wget
   ];
+  programs.zsh.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
