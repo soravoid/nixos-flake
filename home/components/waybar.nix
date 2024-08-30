@@ -4,6 +4,8 @@ let
   lib = pkgs.lib;
 in
 {
+  home.packages = [ pkgs.noto-fonts-color-emoji ];
+
   programs.waybar.enable = true;
   programs.waybar.settings = {
     main = {
