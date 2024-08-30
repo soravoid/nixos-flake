@@ -1,13 +1,14 @@
+{pkgs, ...}:
 {
   programs.anyrun = {
     enable = true;
     config = {
       plugins = [
-        inputs.anyrun.packages.${pkgs.system}.applications
-        inputs.anyrun.packages.${pkgs.system}.symbols
-        inputs.anyrun.packages.${pkgs.system}.shell
-        inputs.anyrun.packages.${pkgs.system}.translate
-        inputs.anyrun.packages.${pkgs.system}.kidex
+        pkgs.anyrun.packages.${pkgs.system}.applications
+        pkgs.anyrun.packages.${pkgs.system}.symbols
+        pkgs.anyrun.packages.${pkgs.system}.shell
+        pkgs.anyrun.packages.${pkgs.system}.translate
+        pkgs.anyrun.packages.${pkgs.system}.kidex
       ];
       x = { fraction = 0.5; };
       y = { absolute = 0; };

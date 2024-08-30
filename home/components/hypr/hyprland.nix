@@ -3,6 +3,25 @@ let
   lib = pkgs.lib;
 in
 {
+  imports = [
+    ../anyrun.nix
+    ../firefox.nix
+    ./hypridle.nix
+    ../waybar.nix
+  ];
+
+  home.packages = with pkgs; [
+    hyprlock
+    hyprcursor
+    swww
+    mako
+    xwaylandvideobridge
+  ];
+
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+  xdg.portal.config.common.default = "*";
+
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.systemd.enable = true;
   wayland.windowManager.hyprland.xwayland.enable = true;
@@ -53,8 +72,7 @@ in
       inactive_opacity = 1.0;
 
       drop_shadow = true;
-      shadow_range = 4;
-      "col.shadow" = "rgba(1a1a1aee)";
+      shadow_range = 4; "col.shadow" = "rgba(1a1a1aee)";
 
       blur = {
         enabled = true;
