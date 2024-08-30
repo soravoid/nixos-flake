@@ -1,15 +1,10 @@
 {pkgs, ...}:
 {
+  home.packages = [ pkgs.anyrun ];
+
   programs.anyrun = {
     enable = true;
     config = {
-      plugins = [
-        pkgs.anyrun.packages.${pkgs.system}.applications
-        pkgs.anyrun.packages.${pkgs.system}.symbols
-        pkgs.anyrun.packages.${pkgs.system}.shell
-        pkgs.anyrun.packages.${pkgs.system}.translate
-        pkgs.anyrun.packages.${pkgs.system}.kidex
-      ];
       x = { fraction = 0.5; };
       y = { absolute = 0; };
       width = { absolute = 800; };
