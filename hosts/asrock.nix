@@ -3,6 +3,30 @@
   networking.hostName = "firefly";
   services.pipewire.alsa.support32Bit = lib.mkBefore true;
 
+  hardware.graphics.enable = true;
+  hardware.graphics.enable32Bit = true;
+
+  hardware.opengl.driSupport = true;
+  hardware.opengl.driSupport32Bit = true;
+
+  programs.steam = {
+    enable = true;
+    dedicatedServer.openFirewall = true;
+    # remotePlay.openFirewall = true;
+    # localNetworkGameTransfers.openFirewall = true;
+
+    gamescopeSession.enable = true;
+  };
+
+  programs.gamemode.enable = true;
+  programs.gamemode.settings = {
+    gpu = {
+      apply_gpu_optimizations = "accept-responsibility";
+      gpu_device = 1;
+      amd_performance_level = "auto";
+    };
+  };
+
   ########## COPIED FROM HARDWARE SCAN ##########
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
