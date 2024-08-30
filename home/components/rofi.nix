@@ -47,7 +47,7 @@ in
       };
 
       "prompt, entry, element-icon, element-text" = {
-        vertical-align = 0.5;
+        vertical-align = mkLiteral "0.5";
       };
 
       prompt = {
