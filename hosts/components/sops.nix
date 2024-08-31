@@ -13,5 +13,13 @@
       keyFile = "/var/lib/sops-nix/key.txt";
       generateKey = true;
     };
+
+    secrets = {
+      "user_age_keys/user" = {
+        owner = config.users.users.user.name;
+        inherit (config.users.users.user) group;
+        path = "/home/user/.config/sops/age/keys.txt";
+      };
+    };
   };
 }
