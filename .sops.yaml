@@ -1,6 +1,6 @@
 keys:
   - &users:
-    - &user 4907BDBDA189FD7D3398BCA44358296D755534E6
+    - &user C2FD2F276EB035F4CBB4660E2228A8900567AE95
   - &hosts:
     - &thinkpadx1 age1auuwgpv960wg3akpxec49xvyntrxfs90l85zygu95rh7xjagzeysze5u2u
     - &asrock age1auuwgpv960wg3akpxec49xvyntrxfs90l85zygu95rh7xjagzeysze5u2u  # Garbage
