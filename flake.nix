@@ -33,6 +33,9 @@
         ./hosts/thinkpadx1.nix
         home-manager.nixosModules.home-manager
         {
+          home-manager.sharedModules = with inputs; [
+            sops-nix.homeManagerModules.sops
+          ];
           home-manager.extraSpecialArgs = specialArgs;
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
@@ -56,6 +59,9 @@
         ./hosts/thinkpadx1.nix
         home-manager.nixosModules.home-manager
         {
+          home-manager.sharedModules = with inputs; [
+            sops-nix.homeManagerModules.sops
+          ];
           home-manager.extraSpecialArgs = specialArgs;
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;

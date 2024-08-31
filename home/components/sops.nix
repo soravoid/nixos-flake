@@ -3,10 +3,6 @@ let
   home_dir = config.home.homeDirectory;
 in
 {
-  imports = [
-    inputs.sops-nix.homeManagerModules.sops
-  ];
-
   sops = {
     age.keyFile = "${home_dir}/.config/sops/age/keys.txt";
 
