@@ -25,12 +25,12 @@
         ./disk-configs/disk-config-thinkpadx1.nix
         ./configuration.nix
         ./hosts/thinkpadx1.nix
-        home-manager.sharedModules = [
-          inputs.sops-nix.homeManagerModules.sops
-        ]
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.sharedModules = [
+            inputs.sops-nix.homeManagerModules.sops
+          ];
           home-manager.users.user =  (import ./home/home-user-devel.nix) {
             wayland.windowManager.hyprland.settings.monitor =
               lib.mkBefore ([ "eDP-1,1920x1080@60,0x0,1" ]);
@@ -47,12 +47,12 @@
         ./disk-configs/disk-config-asrock.nix
         ./configuration.nix
         ./hosts/thinkpadx1.nix
-        home-manager.sharedModules = [
-          inputs.sops-nix.homeManagerModules.sops
-        ]
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.sharedModules = [
+            inputs.sops-nix.homeManagerModules.sops
+          ];
           home-manager.users.user =  (import ./home/home-user-full.nix) {
             wayland.windowManager.hyprland.settings.monitor =
               lib.mkBefore ([
