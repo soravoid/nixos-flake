@@ -1,7 +1,8 @@
 { pkgs, inputs, ... }:
 {
   imports = [
-    ./components/hypr/hyprland.nix
+    ./components/firefox.nix
+    ./components/hyprland
     ./components/sops.nix
   ];
 

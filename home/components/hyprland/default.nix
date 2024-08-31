@@ -1,10 +1,18 @@
-{pkgs, ...}:
+{
+  config,
+  pkgs,
+  ...
+}:
+let
+  inherit (config.networking) hostName;
+in
 {
   imports = [
-    ../firefox.nix
     ./hypridle.nix
     ../rofi.nix
     ../waybar.nix
+    ./hyprlock-${hostName}.nix
+    ./swww-${hostName}.nix
   ];
 
   home.packages = with pkgs; [
@@ -23,7 +31,7 @@
   wayland.windowManager.hyprland.systemd.enable = true;
   wayland.windowManager.hyprland.xwayland.enable = true;
   wayland.windowManager.hyprland.settings = {
-    monitor = [ ",preferred,auto,1" ];
+    monitor = pkgs.lib.mkDefault [ ",preferred,auto,1" ];
 
     "$terminal" = "kitty -1";
     "$fileManager" = "dolphin";

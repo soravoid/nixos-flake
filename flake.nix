@@ -12,6 +12,9 @@
   inputs.sops-nix.url = "github:Mic92/sops-nix";
   inputs.sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
+  inputs.swww.url = "github:LGFae/swww";
+  inputs.swww.inputs.nixpkgs.follows = "nixpkgs";
+
   outputs = { self, nixpkgs, home-manager, ...}@inputs:
   let
     system = "x86_64-linux";

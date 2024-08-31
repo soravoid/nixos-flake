@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  wttr_waybar_script = (import ../../pkgs/waybar_wttr_script) { inherit pkgs; };
+  wttr_waybar_script = pkgs.callPackage ../../pkgs/waybar_wttr_script {};
 in
 {
   home.packages = [ pkgs.noto-fonts-color-emoji ];
