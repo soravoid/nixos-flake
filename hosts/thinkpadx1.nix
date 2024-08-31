@@ -1,6 +1,7 @@
 {config, lib, pkgs, modulesPath, ...}:
 {
   imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
     ./components/sops.nix
   ];
 
@@ -19,10 +20,6 @@
   };
 
   ########## COPIED FROM HARDWARE SCAN ##########
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
-
   boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
