@@ -1,0 +1,14 @@
+keys:
+  - &users:
+    - &user 4907BDBDA189FD7D3398BCA44358296D755534E6
+  - &hosts:
+    - &thinkpadx1 age1auuwgpv960wg3akpxec49xvyntrxfs90l85zygu95rh7xjagzeysze5u2u
+    - &asrock age1auuwgpv960wg3akpxec49xvyntrxfs90l85zygu95rh7xjagzeysze5u2u  # Garbage
+
+creation_rules:
+  - path_regex: secrets.yaml$
+    key_groups:
+      - age:
+          - *thinkpadx1
+        pgp:
+          - *user

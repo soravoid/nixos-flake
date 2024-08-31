@@ -1,6 +1,10 @@
 {config, lib, pkgs, modulesPath, ...}:
 {
-  networking.hostName = "samsara";
+  imports = [
+    ./components/sops.nix
+  ];
+
+  networking.hostName = "thinkpadx1";
 
   hardware.graphics = {
     enable = true;

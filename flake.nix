@@ -9,7 +9,10 @@
   inputs.home-manager.url = "github:nix-community/home-manager";
   inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-  outputs = { self, nixpkgs, disko, home-manager, ...}@inputs:
+  inputs.sops-nix.url = "github:Mic92/sops-nix";
+  inputs.sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+  outputs = { self, nixpkgs, home-manager, ...}@inputs:
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
@@ -18,10 +21,13 @@
     nixosConfigurations.thinkpadx1 = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
-        disko.nixosModules.disko
+        inputs.disko.nixosModules.disko
         ./disk-configs/disk-config-thinkpadx1.nix
         ./configuration.nix
         ./hosts/thinkpadx1.nix
+        home-manager.sharedModules = [
+          inputs.sops-nix.homeManagerModules.sops
+        ]
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
@@ -37,10 +43,13 @@
     nixosConfigurations.asrock = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
-        disko.nixosModules.disko
+        inputs.disko.nixosModules.disko
         ./disk-configs/disk-config-asrock.nix
         ./configuration.nix
         ./hosts/thinkpadx1.nix
+        home-manager.sharedModules = [
+          inputs.sops-nix.homeManagerModules.sops
+        ]
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;

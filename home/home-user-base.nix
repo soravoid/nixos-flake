@@ -1,7 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     ./components/hypr/hyprland.nix
+    ./components/sops.nix
   ];
 
   home.username = "user";
@@ -14,6 +15,16 @@
     vesktop
     nerdfonts
   ];
+
+  services.openssh.enable = true;
+  services.openssh.ports = [ 22 ];
+  services.openssh.settings = {
+    PasswordAuthentication = true;
+    AllowUsers = [ "user" ];
+    UseDns = true;
+    X11Forwarding = false;
+    PermitRootLogin = "no";
+  };
 
   programs.zsh = {
     enable = true;
