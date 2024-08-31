@@ -16,16 +16,6 @@
     nerdfonts
   ];
 
-  services.openssh.enable = true;
-  services.openssh.ports = [ 22 ];
-  services.openssh.settings = {
-    PasswordAuthentication = true;
-    AllowUsers = [ "user" ];
-    UseDns = true;
-    X11Forwarding = false;
-    PermitRootLogin = "no";
-  };
-
   programs.zsh = {
     enable = true;
     enableCompletion = true;

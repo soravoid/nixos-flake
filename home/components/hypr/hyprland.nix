@@ -1,7 +1,4 @@
 {pkgs, ...}:
-let
-  lib = pkgs.lib;
-in
 {
   imports = [
     ../firefox.nix
@@ -26,7 +23,7 @@ in
   wayland.windowManager.hyprland.systemd.enable = true;
   wayland.windowManager.hyprland.xwayland.enable = true;
   wayland.windowManager.hyprland.settings = {
-    monitor = lib.mkOptionDefault [ ",preferred,auto,1" ];
+    monitor = [ ",preferred,auto,1" ];
 
     "$terminal" = "kitty -1";
     "$fileManager" = "dolphin";

@@ -1,6 +1,7 @@
 {inputs, config, ...}:
 let
   home_dir = config.home.homeDirectory;
+in
 {
   imports = [
     inputs.sops-nix.homeManagerModules.sops
@@ -16,6 +17,6 @@ let
       "user_private_keys/user" = {
         path = "${home_dir}/.ssh/id_ed25519";
       };
-    }
+    };
   };
 }

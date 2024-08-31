@@ -90,8 +90,15 @@
 
   # List services that you want to enable:
 
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
+  services.openssh.ports = [ 22 ];
+  services.openssh.settings = {
+    PasswordAuthentication = true;
+    AllowUsers = [ "user" ];
+    UseDns = true;
+    X11Forwarding = false;
+    PermitRootLogin = "no";
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

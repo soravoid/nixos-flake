@@ -1,7 +1,6 @@
 { pkgs, ... }:
 let
   wttr_waybar_script = (import ../../pkgs/waybar_wttr_script) { inherit pkgs; };
-  lib = pkgs.lib;
 in
 {
   home.packages = [ pkgs.noto-fonts-color-emoji ];
@@ -87,7 +86,7 @@ in
       };
 
       temperature = {
-        hwmon-path = lib.mkOptionDefault "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input";
+        hwmon-path = "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input";
         critical-threshold = 80;
         format = "{temperatureC}°C {icon}";
         format-icons = [ "" "" "" "" "" ];

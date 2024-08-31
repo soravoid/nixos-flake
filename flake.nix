@@ -15,53 +15,56 @@
   outputs = { self, nixpkgs, home-manager, ...}@inputs:
   let
     system = "x86_64-linux";
-    lib = nixpkgs.lib;
+    inherit (nixpkgs) lib;
+    specialArgs = {
+      inherit
+        inputs
+        ;
+    };
   in
   {
     nixosConfigurations.thinkpadx1 = nixpkgs.lib.nixosSystem {
       inherit system;
+      inherit specialArgs;
       modules = [
         inputs.disko.nixosModules.disko
         ./disk-configs/disk-config-thinkpadx1.nix
         ./configuration.nix
         ./hosts/thinkpadx1.nix
-        home-manager.nixosModules.home-manager {
+        home-manager.nixosModules.home-manager
+        {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.sharedModules = [
-            inputs.sops-nix.homeManagerModules.sops
-          ];
           home-manager.users.user =  (import ./home/home-user-devel.nix) {
-            wayland.windowManager.hyprland.settings.monitor =
-              lib.mkBefore ([ "eDP-1,1920x1080@60,0x0,1" ]);
+            wayland.windowManager.hyprland.settings.monitor = [
+              "eDP-1,1920x1080@60,0x0,1"
+            ];
             programs.waybar.settings.main.temperature.hwmon-path =
-              lib.mkBefore "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp4_input";
+              "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp4_input";
           };
         }
       ];
     };
     nixosConfigurations.asrock = nixpkgs.lib.nixosSystem {
       inherit system;
+      inherit specialArgs;
       modules = [
         inputs.disko.nixosModules.disko
         ./disk-configs/disk-config-asrock.nix
         ./configuration.nix
         ./hosts/thinkpadx1.nix
-        home-manager.nixosModules.home-manager {
+        home-manager.nixosModules.home-manager
+        {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.sharedModules = [
-            inputs.sops-nix.homeManagerModules.sops
-          ];
           home-manager.users.user =  (import ./home/home-user-full.nix) {
-            wayland.windowManager.hyprland.settings.monitor =
-              lib.mkBefore ([
+            wayland.windowManager.hyprland.settings.monitor = [
                 # Don't ask about the positioning
                 "DP-2,2560x1440@144,-1920x150,1"
                 "HDMI-A-1,1920x1080@60,0x0,1.33333"
-              ]);
+            ];
             programs.waybar.settings.main.temperature.hwmon-path =
-              lib.mkBefore "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input";
+              "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input";
             };
         }
       ];
