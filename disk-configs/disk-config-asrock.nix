@@ -1,6 +1,6 @@
 {lib, ...}:
 {
-  disko.devices.disk = lib.genAttrs ["0", "1"] (name: {
+  disko.devices.disk = lib.genAttrs [ "0" "1" ] (name: {
     type = "disk";
     device = "/dev/nvme${name}n1";
     content = {
