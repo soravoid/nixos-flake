@@ -45,16 +45,16 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.user = { ... }: {
-	        imports = [
-	          ./home/home-user-devel.nix
-	        ];
+                imports = [
+                  ./home/home-user-devel.nix
+                ];
                 wayland.windowManager.hyprland.settings.monitor = [
                   "eDP-1,1920x1080@60,0x0,1"
                 ];
                 programs.waybar.settings.main.temperature.hwmon-path =
                   "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp4_input";
               };
-	    }
+            }
           ];
         };
       }
@@ -76,8 +76,8 @@
             home-manager.useUserPackages = true;
             home-manager.users.user = { ... }: {
               imports = [
-	        ./home/home-user-full.nix
-	      ];
+                ./home/home-user-full.nix
+              ];
               wayland.windowManager.hyprland.settings.monitor = [
                 # Don't ask about the positioning
                 "DP-2,2560x1440@144,-1920x150,1"
@@ -86,7 +86,7 @@
               programs.waybar.settings.main.temperature.hwmon-path =
                 "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input";
             };
-	  }
+          }
         ];
       });
     ];

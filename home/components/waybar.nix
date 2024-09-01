@@ -30,16 +30,16 @@ in
 
       "hyprland/language" = {
         format = "{} 󰌌 ";
-	      min-length = 5;
-	      tooltip = false;
+        min-length = 5;
+        tooltip = false;
       };
 
       "keyboard-state" = {
         capslock = true;
         format = "{name} {icon} ";
         format-icons = {
-            locked = " ";
-            unlocked = " ";
+          locked = " ";
+          unlocked = " ";
         };
       };
 
