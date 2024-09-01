@@ -1,7 +1,3 @@
-{
-  pkgs,
-  ...
-}:
 let
   common_settings = {
     blur_passes = 0;
@@ -12,13 +8,14 @@ let
     vibrancy = 0.1696;
     vibrancy_darkness = 0.0;
   };
+in
 {
   programs.hyprlock.enable = true;
   programs.hyprlock.settings = {
     background = [
       {
         monitor = "eDP-1";
-        path = ../wallpapers/orv1.png;
+        path = "${../wallpapers/orv1.png}";
         inherit (common_settings)
           blur_passes
           blur_size
@@ -26,11 +23,11 @@ let
           contrast
           brightness
           vibrancy
-            vibrancy_darkness
+          vibrancy_darkness
         ;
       }
     ];
-    input-field {
+    input-field = {
       monitor = "eDP-1";
       size = "200, 50";
       outline_thickness = 3;

@@ -1,10 +1,10 @@
 {
-  config,
   pkgs,
+  osConfig,
   ...
 }:
 let
-  inherit (config.networking) hostName;
+  inherit (osConfig.networking) hostName;
 in
 {
   imports = [
@@ -16,9 +16,7 @@ in
   ];
 
   home.packages = with pkgs; [
-    hyprlock
     hyprcursor
-    swww
     mako
     xwaylandvideobridge
   ];

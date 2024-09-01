@@ -1,7 +1,3 @@
-{
-  pkgs,
-  ...
-}:
 let
   common_settings = {
     blur_passes = 0;
@@ -12,13 +8,14 @@ let
     vibrancy = 0.1696;
     vibrancy_darkness = 0.0;
   };
+in
 {
   programs.hyprlock.enable = true;
   programs.hyprlock.settings = {
     background = [
       {
         monitor = "DP-2";
-        path = ../wallpapers/hsr.jpg;
+        path = "${../wallpapers/hsr.jpg}";
         inherit (common_settings)
           blur_passes
           blur_size
@@ -31,7 +28,7 @@ let
       }
       {
         monitor = "HDMI-A-1";
-        path = ../wallpapers/hsr2.png;
+        path = "${../wallpapers/hsr2.png}";
         inherit (common_settings)
           blur_passes
           blur_size

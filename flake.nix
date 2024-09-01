@@ -22,7 +22,7 @@
     specialArgs = {
       inherit
         inputs
-        ;
+      ;
     };
   in
   {
