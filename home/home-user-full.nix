@@ -4,7 +4,7 @@
   ];
 
   wayland.windowManager.hyprland.settings = {
-    windowrulesv2 = [
+    windowrulev2 = [
       "fullscreen,class:^(gamescope)$"
       "monitor DP-2,class:^(gamescope)$"
       "workspace 10,class:^(gamescope)$"
