@@ -23,7 +23,7 @@
     "github.com" = {
       hostname = "github.com";
       identitiesOnly = true;
-      identityFile = "/home/user/id_github_rw";
+      identityFile = "/home/user/.ssh/id_github_rw";
     };
   };
 
