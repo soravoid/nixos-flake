@@ -28,6 +28,7 @@
     boot = {
       type = "mdadm";
       level = 1;
+      metadata = "1.0";
       content = {
         size = "1G";
         type = "EF00";
