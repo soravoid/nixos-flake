@@ -11,7 +11,7 @@
           type = "EF00";
           content = {
             type = "mdraid";
-            name = "boot"
+            name = "boot";
           };
         };
         mdadm = {
