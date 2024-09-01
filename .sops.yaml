@@ -5,7 +5,7 @@ keys:
     - &user_home age1fqgqugs3xk430tleutumc6ppk3l26expcszhhn4l0d3p7erf2ses5neg2j
   - &hosts:
     - &thinkpadx1 age1auuwgpv960wg3akpxec49xvyntrxfs90l85zygu95rh7xjagzeysze5u2u
-    - &asrock age1auuwgpv960wg3akpxec49xvyntrxfs90l85zygu95rh7xjagzeysze5u2u  # Garbage
+    - &asrock age1zk692n9lhkl8dsrsgt4jgjxhq0r4fn44guxzg4ynu3svf59274pq0xm9yf
 
 creation_rules:
   # TODO: Separate user home keys from system keys
@@ -13,6 +13,7 @@ creation_rules:
     key_groups:
       - age:
           - *thinkpadx1
+          - *asrock
           - *user_home
         pgp:
           - *user
