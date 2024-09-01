@@ -60,7 +60,7 @@
       DisableFirefoxStudies = true;
       DisableFirefoxAccounts = true;
       AutofillAddressEnabled = false;
-      AutofillCreditCardEnabled = true;
+      AutofillCreditCardEnabled = false;
       NoDefaultBookmarks = true;
       OfferToSaveLogins = false;
       OfferToSaveLoginsDefault = false;
