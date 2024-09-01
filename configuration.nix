@@ -15,8 +15,7 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
   networking.networkmanager.wifi.backend = "iwd";
-
-  # Set your time zone.
+# Set your time zone.
   time.timeZone = "US/Central";
 
   # Configure network proxy if necessary
@@ -56,7 +55,7 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.mutableUsers = false;
   users.users.user = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "input" ];

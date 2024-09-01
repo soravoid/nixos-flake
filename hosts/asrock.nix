@@ -38,6 +38,9 @@
       amd_performance_level = "auto";
     };
   };
+  users.users.user.extraGroups = [
+    "gamemode"
+  ];
 
   ########## COPIED FROM HARDWARE SCAN ##########
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" ];
