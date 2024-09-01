@@ -15,16 +15,11 @@
 
   # Kernel module for TP-LINK USB WiFi Adapter
   boot.extraModulePackages = [ config.boot.kernelPackages.rtl8852au ];
+  # Needed for USB WiFi adapter to work
+  hardware.usb-modeswitch.enable = true;
 
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
-
-
-  inputs.nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "steam"
-    "steam-original"
-    "steam-run"
-  ];
 
   programs.steam = {
     enable = true;

@@ -58,7 +58,7 @@
           ];
         };
       }
-      lib.genAttrs [ "asrock" "asrock-install" ] (name: nixpkgs.lib.nixosSystem {
+      (lib.genAttrs [ "asrock" "asrock-install" ] (name: nixpkgs.lib.nixosSystem {
         inherit system;
         inherit specialArgs;
         modules = [
@@ -68,6 +68,11 @@
           ./hosts/asrock.nix
           home-manager.nixosModules.home-manager
           {
+	    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+	      "steam"
+	      "steam-original"
+	      "steam-run"
+	    ];
             home-manager.sharedModules = with inputs; [
               sops-nix.homeManagerModules.sops
             ];
@@ -88,7 +93,7 @@
             };
           }
         ];
-      });
+      }))
     ];
   };
 }
