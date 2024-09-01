@@ -5,6 +5,11 @@
     ./components/sops.nix
   ];
 
+  # Drivers for USB WiFi adapter
+  environment.systemPackages = with pkgs; [
+    pkgs.linuxKernel.packages.linux_zen.rtl8852au
+  ];
+
   networking.hostName = "firefly";
   services.pipewire.alsa.support32Bit = lib.mkBefore true;
 
