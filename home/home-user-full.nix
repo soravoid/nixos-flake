@@ -1,6 +1,7 @@
 {
   imports = [
     ./home-user-base.nix
+    ./components/gaming
   ];
 
   wayland.windowManager.hyprland.settings = {
