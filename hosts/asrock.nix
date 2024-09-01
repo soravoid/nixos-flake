@@ -1,4 +1,9 @@
-{ config, lib, modulesPath, ... }:
+{ config
+, lib
+, modulesPath
+, inputs
+, ...
+}:
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
@@ -13,6 +18,13 @@
 
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
+
+
+  inputs.nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "steam"
+    "steam-original"
+    "steam-run"
+  ];
 
   programs.steam = {
     enable = true;

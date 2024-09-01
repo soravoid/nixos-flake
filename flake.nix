@@ -26,70 +26,69 @@
     };
   in
   {
-    nixosConfigurations.thinkpadx1 = nixpkgs.lib.nixosSystem {
-      inherit system;
-      inherit specialArgs;
-      modules = [
-        inputs.disko.nixosModules.disko
-        ./disk-configs/disk-config-thinkpadx1.nix
-        ./configuration.nix
-        ./hosts/thinkpadx1.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.sharedModules = with inputs; [
-            sops-nix.homeManagerModules.sops
+    nixosConfigurations = lib.mergeAttrsList [
+      {
+        thinkpadx1 = nixpkgs.lib.nixosSystem {
+          inherit system;
+          inherit specialArgs;
+          modules = [
+            inputs.disko.nixosModules.disko
+            ./disk-configs/disk-config-thinkpadx1.nix
+            ./configuration.nix
+            ./hosts/thinkpadx1.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.sharedModules = with inputs; [
+                sops-nix.homeManagerModules.sops
+              ];
+              home-manager.extraSpecialArgs = specialArgs;
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.user = { ... }: {
+	        imports = [
+	          ./home/home-user-devel.nix
+	        ];
+                wayland.windowManager.hyprland.settings.monitor = [
+                  "eDP-1,1920x1080@60,0x0,1"
+                ];
+                programs.waybar.settings.main.temperature.hwmon-path =
+                  "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp4_input";
+              };
+	    }
           ];
-          home-manager.extraSpecialArgs = specialArgs;
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.user = { ... }: {
-	    imports = [
-	      ./home/home-user-devel.nix
-	    ];
-            wayland.windowManager.hyprland.settings.monitor = [
-              "eDP-1,1920x1080@60,0x0,1"
+        };
+      }
+      lib.genAttrs [ "asrock" "asrock-install" ] (name: nixpkgs.lib.nixosSystem {
+        inherit system;
+        inherit specialArgs;
+        modules = [
+          inputs.disko.nixosModules.disko
+          ./disk-configs/disk-config-${name}.nix
+          ./configuration.nix
+          ./hosts/asrock.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.sharedModules = with inputs; [
+              sops-nix.homeManagerModules.sops
             ];
-            programs.waybar.settings.main.temperature.hwmon-path =
-              "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp4_input";
-          };
-        }
-      ];
-    };
-    nixosConfigurations.asrock = nixpkgs.lib.nixosSystem {
-      inherit system;
-      inherit specialArgs;
-      modules = [
-        inputs.disko.nixosModules.disko
-        ./disk-configs/disk-config-asrock.nix
-        ./configuration.nix
-        ./hosts/asrock.nix
-        home-manager.nixosModules.home-manager
-        {
-          nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-            "steam"
-            "steam-original"
-            "steam-run"
-          ];
-          home-manager.sharedModules = with inputs; [
-            sops-nix.homeManagerModules.sops
-          ];
-          home-manager.extraSpecialArgs = specialArgs;
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.user = { ... }: {
-	    imports = [
-	      ./home/home-user-full.nix
-	    ];
-            wayland.windowManager.hyprland.settings.monitor = [
+            home-manager.extraSpecialArgs = specialArgs;
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.user = { ... }: {
+              imports = [
+	        ./home/home-user-full.nix
+	      ];
+              wayland.windowManager.hyprland.settings.monitor = [
                 # Don't ask about the positioning
                 "DP-2,2560x1440@144,-1920x150,1"
                 "HDMI-A-1,1920x1080@60,0x0,1.33333"
-            ];
-            programs.waybar.settings.main.temperature.hwmon-path =
-              "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input";
-          };
-        }
-      ];
-    };
+              ];
+              programs.waybar.settings.main.temperature.hwmon-path =
+                "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input";
+            };
+	  }
+        ];
+      });
+    ];
   };
 }
