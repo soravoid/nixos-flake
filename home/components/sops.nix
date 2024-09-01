@@ -11,7 +11,10 @@ in
 
     secrets = {
       "user_private_keys/user" = {
-        path = "${home_dir}/.ssh/id_ed25519";
+        path = "${home_dir}/.ssh/id_github_rw";
+      };
+      "ssh_signing_key" = {
+        path = "${home_dir}/.ssh/id_github_sign";
       };
     };
   };

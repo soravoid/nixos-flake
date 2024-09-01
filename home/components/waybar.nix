@@ -1,6 +1,11 @@
 { pkgs, ... }:
 let
-  wttr_waybar_script = pkgs.callPackage ../../pkgs/waybar_wttr_script {};
+  wttr_waybar_script = pkgs.stdenv.mkDerivation {
+    name = "waybar_wttr_script";
+    buildInputs = [ (pkgs.python3.withPackages (p: [ p.requests ])) ];
+    unpackPhase = ":";
+    installPhase = "install -m755 -D ${./wttr.py} $out/bin/wttr";
+  };
 in
 {
   home.packages = [ pkgs.noto-fonts-color-emoji ];

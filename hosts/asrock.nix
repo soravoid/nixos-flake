@@ -1,23 +1,18 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, modulesPath, ... }:
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ./components/sops.nix
   ];
 
-  # Drivers for USB WiFi adapter
-  environment.systemPackages = with pkgs; [
-    pkgs.linuxKernel.packages.linux_zen.rtl8852au
-  ];
-
-  networking.hostName = "firefly";
+  networking.hostName = "asrock";
   services.pipewire.alsa.support32Bit = lib.mkBefore true;
+
+  # Kernel module for TP-LINK USB WiFi Adapter
+  boot.extraModulePackages = [ config.boot.kernelPackages.rtl8852au ];
 
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
-
-  hardware.opengl.driSupport = true;
-  hardware.opengl.driSupport32Bit = true;
 
   programs.steam = {
     enable = true;
@@ -41,7 +36,7 @@
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+  # boot.extraModulePackages = [ ];
   hardware.firmware = [ ];
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";

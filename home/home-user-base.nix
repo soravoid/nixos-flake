@@ -17,6 +17,27 @@
     nerdfonts
   ];
 
+  programs.ssh.enable = true;
+  programs.ssh.addKeysToAgent = "yes";
+  programs.ssh.matchBlocks = {
+    "github.com" = {
+      hostname = "github.com";
+      identitiesOnly = true;
+      identityFile = "/home/user/id_github_rw";
+    };
+  };
+
+  programs.git = {
+    enable = true;
+    userEmail = "43506164+soravoid@users.noreply.github.com";
+    userName = "Jaden";
+    extraConfig = {
+      commit.gpgsign = true;
+      gpg.format = "ssh";
+      user.signingkey = "/home/user/.ssh/id_github_sign";
+    };
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;

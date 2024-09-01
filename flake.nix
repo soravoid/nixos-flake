@@ -59,9 +59,14 @@
         inputs.disko.nixosModules.disko
         ./disk-configs/disk-config-asrock.nix
         ./configuration.nix
-        ./hosts/thinkpadx1.nix
+        ./hosts/asrock.nix
         home-manager.nixosModules.home-manager
         {
+          nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+            "steam"
+            "steam-original"
+            "steam-run"
+          ];
           home-manager.sharedModules = with inputs; [
             sops-nix.homeManagerModules.sops
           ];
