@@ -5,6 +5,7 @@
 }:
 let
   inherit (osConfig.networking) hostName;
+  nordzy-cursors-hyprcursor-theme = pkgs.callPackage ../../../pkgs/nordzy-cursors-hyprcursor-theme {};
 in
 {
   imports = [
@@ -17,10 +18,14 @@ in
 
   home.packages = with pkgs; [
     hyprcursor
-    nordzy-cursor-theme
     mako
     xwaylandvideobridge
+  ]
+  ++ [
+    nordzy-cursors-hyprcursor-theme
   ];
+
+  home.file.".icons/default".source = "${nordzy-cursors-hyprcursor-theme}/share/icons/Nordzy-cursors";
 
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
@@ -46,6 +51,7 @@ in
 
     env = [
       "XCURSOR_SIZE,24"
+      "HYPRCURSOR_THEME,Nordzy-cursors"
       "HYPRCURSOR_SIZE,24"
       "EDITOR,nvim"
       "XDG_CURRENT_DESKTOP,Hyprland"
