@@ -30,18 +30,14 @@
       level = 1;
       metadata = "1.0";
       content = {
-        size = "1G";
-        type = "EF00";
-        content = {
-          type = "filesystem";
-          format = "vfat";
-          mountpoint = "/efi";
-          mountOptions = [
-            "defaults"
-            "dmask=0077"
-            "fmask=0077"
-          ];
-        };
+        type = "filesystem";
+        format = "vfat";
+        mountpoint = "/efi";
+        mountOptions = [
+          "defaults"
+          "dmask=0077"
+          "fmask=0077"
+        ];
       };
     };
     root = {
