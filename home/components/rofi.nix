@@ -13,7 +13,6 @@ in
     enable = true;
     terminal = "${pkgs.kitty}/bin/kitty";
     package = pkgs.rofi-wayland;
-    plugins = with pkgs; [ rofi-rbw ];
     theme = {
       "*" = {
         font = "FiraCode Nerd Font Medium 12";
