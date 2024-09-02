@@ -25,6 +25,7 @@ in
     nordzy-cursors-hyprcursor-theme
   ];
 
+  # Setting default theme for Hyprcursor
   home.file.".icons/default".source = "${nordzy-cursors-hyprcursor-theme}/share/icons/Nordzy-cursors";
 
   xdg.portal.enable = true;
@@ -38,7 +39,7 @@ in
     monitor = pkgs.lib.mkDefault [ ",preferred,auto,1" ];
 
     "$terminal" = "kitty -1";
-    "$fileManager" = "dolphin";
+    "$fileManager" = "thunar";
     "$menu" = "rofi -show drun";
 
     exec-once = [
@@ -47,6 +48,7 @@ in
       "waybar"
       "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       "systemctl --user import-environment"
+      "thunar --daemon"
     ];
 
     env = [

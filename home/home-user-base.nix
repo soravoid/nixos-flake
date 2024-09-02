@@ -15,6 +15,8 @@
     kitty
     vesktop
     nerdfonts
+    kdePackages.ark
+    kdePackages.okular
   ];
 
   programs.ssh.enable = true;

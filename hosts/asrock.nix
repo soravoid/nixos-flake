@@ -1,4 +1,5 @@
 { config
+, pkgs
 , lib
 , modulesPath
 , inputs
@@ -20,6 +21,14 @@
 
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
+
+  programs.thunar.enable = true;
+  programs.thunar.plugins = with pkgs.xfce; [
+    thunar-archive-plugin
+    thunar-volman
+  ];
+  # Needed to save prefs if not using xfce
+  programs.xfconf.enable = true;
 
   programs.steam = {
     enable = true;
