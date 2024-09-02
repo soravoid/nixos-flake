@@ -19,6 +19,8 @@
     kdePackages.okular
   ];
 
+  programs.ncspot.enable = true;
+
   programs.ssh.enable = true;
   programs.ssh.addKeysToAgent = "yes";
   programs.ssh.matchBlocks = {
