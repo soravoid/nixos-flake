@@ -17,6 +17,7 @@
     nerdfonts
     kdePackages.ark
     kdePackages.okular
+    pavucontrol
   ];
 
   programs.ncspot.enable = true;
